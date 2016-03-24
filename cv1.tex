@@ -1,0 +1,378 @@
+
+\documentclass[a4paper]{article} % Default font size and paper size
+
+%----------------------------------------------------------------------------------------
+% STYLING
+%----------------------------------------------------------------------------------------
+% FONTS
+\usepackage{fontspec} % For loading fonts
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin} % Main document font
+
+% HEADERS
+\usepackage{xunicode,xltxtra,url,parskip} % Formatting packages
+\usepackage{scrpage2} % Provides headers and footers configuration
+
+% HYPERREFS
+\usepackage{hyperref} % Required for adding links	and customizing them
+\usepackage[usenames,dvipsnames]{xcolor} % Required for specifying custom colours
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} % Link colour
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour} % Set link colours throughout the document
+
+% TABLES
+\usepackage{tabularx,colortbl} % Advanced table configurations
+\usepackage{array} % Custom arrangement for the columns
+\usepackage{multirow} %rows spanning multiple rows
+
+% SECTIONS
+\usepackage{titlesec} % Used to customize the \section command
+\titleformat{\section}{\scshape\raggedright}{}{0em}{}[\titlerule] % Text formatting of sections
+\titlespacing{\section}{0pt}{1pt}{2pt} % Spacing around sections
+
+% LISTS
+\usepackage{enumitem} % For left margin removal in itemize
+
+% SYMBOLS
+\usepackage{marvosym} % Allows the use of symbols
+
+% PAGE GEOMETRY
+\usepackage[top=1.0cm, bottom=1.5cm, lmargin=1.0cm, rmargin=1.8cm,ignoreheadfoot]{geometry} % The page Geometry
+
+%----------------------------------------------------------------------------------------
+% CUSTOM ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+\newcommand{\verticalspacing}{-0.05cm}
+\newcommand{\headspace}{-0.06cm}
+\newcommand{\bulletspace}{0.7cm}
+\newcommand{\projectheadspacing}{6.9cm}
+
+\newcommand{\highlight}[2]{%
+    \begin{tabular}{p{2.4cm}|l}
+        \textsc {\large #1} & #2
+    \end{tabular}
+}
+
+
+\newcommand{\cproject}[5]{%
+    \begin{tabular}{p{0.60\linewidth}r}
+        \textcolor{NavyBlue}{\small #2} & \multicolumn{1}{m{ \projectheadspacing{} }}{\raggedleft \small {\textsc{#1}}}\\
+        \small {#3} & \small {#4}
+    \end{tabular}\\
+    \begin{tabular}{p{0.98\linewidth}}
+    \vspace{-0.3cm}
+        \small{#5}
+    \end{tabular}
+    \vspace{\verticalspacing{}}
+}
+
+\newcommand{\gitproject}[3]{%
+    \begin{tabular}{p{0.60\linewidth}r}
+        \textcolor{NavyBlue}{\small #2} & \multicolumn{1}{m{ \projectheadspacing{} }}{\raggedleft #1}\\
+    \end{tabular}\\
+    \begin{tabular}{p{0.98\linewidth}}
+        \vspace{\headspace{}}
+        \small{#3}
+    \end{tabular}
+    \vspace{\verticalspacing{}}
+    \vspace{-0.2cm} % Needed for proper spacing
+}
+
+\newcommand{\itemlist}[1]{%
+    \def\arraystretch{1.2}
+    \begin{tabular}{>{\raggedleft}p{1.6cm}p{0.87\linewidth}}
+        #1
+    \end{tabular}
+    \def\arraystretch{1.0}
+}
+
+\newcommand{\awardlist}[1]{%
+    \def\arraystretch{1.2}
+    \begin{tabular}{>{\raggedleft}p{10cm}p{0.87\linewidth}}
+        #1
+    \end{tabular}
+    \def\arraystretch{1.0}
+}
+
+\newcommand{\skill}[2]{%
+    \begin{tabular}{p{0.60\linewidth}r}
+        \small {#2} & \multicolumn{1}{m{ \projectheadspacing{} }}{\raggedleft \textsc{\small #1}}\\
+    \end{tabular}
+    \vspace{\verticalspacing{}}
+}
+
+\newcommand{\github}{%
+    \includegraphics[height=9pt]{icons/octa.png}
+}
+
+\newcommand{\headerline}[3]{%
+  \par\medskip\noindent
+  \makebox[0pt][l]{#1}%
+  \makebox[\textwidth][c]{#2}%
+  \makebox[0pt][r]{\texttt{#3}}\par\medskip}
+%----------------------------------------------------------------------------------------
+% DOCUMENT BEGINS HERE
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+% \font\fb=''[cmr10]'' % Change the font of the \LaTeX command under the skills section
+
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule] % Section formatting
+
+%----------------------------------------------------------------------------------------
+% HEADER SECTION
+%----------------------------------------------------------------------------------------
+
+{%
+    \begin{tabular}{rp{6cm}l}
+        \multirow{3}{0.70\linewidth}{%
+            \vfil
+            {%
+                \addfontfeature{LetterSpace=20.0}\fontsize{20}{20}\selectfont\scshape
+                Nikhil Patil
+            }\\
+            \emph{Senior Undergraduate, Dept of Computer Science and Engineering}
+        }
+
+        &  {F-111 Hall 1 IIT Kanpur-208016}\\
+        &  {E-Mail: nikhilp@iitk.ac.in}\\
+        &  {Phone: +91-9651609944}\\
+    \end{tabular}
+    \vspace{-0.5cm}
+    \section{}
+}
+
+%----------------------------------------------------------------------------------------
+%   GLOBAL OPTIONS
+%----------------------------------------------------------------------------------------
+\vspace{0.1cm}
+\small
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+\def\arraystretch{1.2}
+\begin{tabular}{|>{\raggedleft}p{1.5cm} |p{7.2cm}|p{6.5cm}|r |}
+    \hline
+    \textsc{2012-16} & B. Tech, \textsc{Computer Science and Engineering}
+    & Indian Institute of Technology, Kanpur
+    & 8.8/10.0\\
+    \hline
+    \textsc{2012} & 12$^{th}$  \textsc{Maharashtra} Board (HSC)
+    & Abasaheb Garware College, Pune
+    & 91\% \\
+    \hline
+    \textsc{2010} & 10$^{th}$  \textsc{Maharashtra} Board (SSC)
+    & R. R. Highschool, Jalgaon
+    & 96\% \\
+    \hline
+\end{tabular}
+\def\arraystretch{1}
+
+% \begin{table}[ht]
+
+% \begin{tabular}{|c|c|c|}
+%  \hline
+%  B. Tech Computer Science and Engineering & IIT Kanpur & 8.8/10\\
+%  \hline
+%  Class 12: Maharashtra Board & Garware College & 91\%\\
+%  \hline
+%  Class 10: Maharashtra Board & R. R. Highschool & 96\%\\
+%  \hline
+%  \end{tabular}
+%  \end{table}
+
+
+%----------------------------------------------------------------------------------------
+%   WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+%
+\section{Internships}
+
+\cproject
+      {May 2015 - Jul 2015}
+      {Rocketbox}
+      {\textsc{Summer Intern}, Mumbai}
+      {}
+      {%
+        \begin{itemize}[leftmargin=\bulletspace{}]
+         \item Developed an android app Rocketbox drivers with integrated tracking module for real time location of drivers.
+         \item Local language support were integrated along with notification alarms.
+         \item Provides customer details along with generating bills at the end of the ride. 
+        \end{itemize}
+      }
+
+\cproject
+      {May 2014 - Jul 2014}
+      {Housing.com}
+      {\textsc{Summer Intern}, Mumbai}
+      {}
+      {%
+        \begin{itemize}[leftmargin=\bulletspace{}]
+         \item Enhanced Housing’s android app, improving response times and navigation. 
+         \item Implemented K mean clustering algorithm to effectively display large data on the map. 
+         \item Coded a new tab to displays new projects \& construction sites from an aerial view 
+        \end{itemize}
+      }
+
+
+%----------------------------------------------------------------------------------------
+%   Awards and Achievements
+%----------------------------------------------------------------------------------------
+\section{Awards and Achievements}
+
+ \begin{itemize}[leftmargin=\bulletspace{}]
+            \item \noindent \textbf{Rank 1}, Regional Maths Olympiad (Maharashtra-Goa) \hfill 2011
+            \item  \noindent \textbf{National Top 400}, Qualified for the Indian National Physics Olympiad (INPhO) \hfill 2011
+            \item \noindent \textbf{Kishore Vaigyanik Protsahan Yojana (KVPY) Fellow}, Indian Institute of Science (Govt. of India) \hfill 2012
+            \item \noindent \textbf{AIR 24} (2012) \& \textbf{AIR 72} (2011), National Science Talent Search Examination (Unified Council) \hfill 2012, 11
+            \item \noindent \textbf{Two Time Global Top 35}, Intl. Maths Olympiad (SFO) \& World Rank 5, Abacus Intl. Maths Challenge (GCS) \hfill 2009, 08
+            \item \noindent \textbf{Top 0.25\%}, IIT JEE (50000 Candidates) \& \textbf{Top 0.1\%}, AIEEE (1200000 Candidates) \hfill 2012
+            \item \noindent \textbf{NTSE Scholar}, Awarded to the \textbf{Top 700} Students by NCERT (Govt. of India) \hfill 2008
+            \item \noindent \textbf{State Rank 1}, Maharashtra State Talent Search Examination (MTSE) \hfill 2010
+            \item \noindent \textbf{Merit Certificate Awardee}, Homi Bhabha Bal Vaidyanik Competition \hfill 2008\\
+         \end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+%  PROJECTS
+%----------------------------------------------------------------------------------------
+
+
+\section{Projects}
+
+\cproject
+    {Jan 2015 - Apr 2015 }
+    {Automated Video surveillance}
+    {\textsc{\raggedright Undergraduate project }, Prof. Harish Karnick}
+    {}
+    {%
+        \begin{itemize}[leftmargin=\bulletspace{}]
+            \item Devised ad hoc variations of frame differencing algorithm for real-time foreground/background classification of frames.
+            \item  Analyzed different machine learning techniques such as SVM, LDA, QDA and Frame Differencing techniques for their accuracy in foreground/background classification.
+            \item Implemented an adaptive background model Codebook for foreground extraction from live feed by background subtraction
+            \item Achieved 94\% accuracy in classification of foreground and background frames.
+
+        \end{itemize}
+    }
+
+\cproject
+    {Jan 2015 - Apr 2015}
+    {Compiler for Perl}
+    {\textsc{\raggedright Compilers}, Prof. Subhajit Roy}
+    {}
+    {%
+        \begin{itemize}[leftmargin=\bulletspace{}]
+            \item Implemented an end to end compiler for Perl in python which generates code for x-86 architechure.
+            \item Compiler supported basic data types Integers and Strings along with operators, statements, loops and functions including recursive functions.
+        \end{itemize}
+    }
+
+\cproject
+    {Jan 2015 - Apr 2015}
+    {Predicting Sentiments in Movie Reviews}
+    {\textsc{\raggedright Machine Learning}, Prof. Harish Karnick}
+    {}
+    {%
+        \begin{itemize}[leftmargin=\bulletspace{}]
+            \item Amongst the \textbf{top 50} submissions on kaggle.
+            \item Project was based on Kaggle problem of classifying movie reviews on the basis of sentiment analysis as positive or negative.
+            \item Used feature extraction methods such as TF-IDF, bag of words, bag of centroids along with classifiers SVM, LDA, QDA, Random forest.
+            
+        \end{itemize}
+    }
+
+
+
+\cproject
+    {Aug 2014 - Nov 2014}
+    {Extension of NachOS}
+    {\textsc{Operating Systems}, Prof. Mainak Chaudhari}
+    {}
+    {%
+        \begin{itemize}[leftmargin=\bulletspace{}]
+            \item Extended the standard system call library of NachOS and implemented system calls pertaining to Fork, Exec, Join, Yield, Sleep and Exit.
+            \item Implemented process scheduling algorithms: UNIX Scheduling, First in First Out,
+                Round Robin, Shortest Job First and Non-pre-emptive job scheduling to assess their relative performances.
+            \item Programmed page replacement algorithms: Random Page Allocation, First in First Out,
+                Least Recently Used(LRU) and LRU Clock to evaluate relative performances under difference scenarios.
+        \end{itemize}
+    }
+
+
+\cproject
+    {Aug 2014 - Nov 2014}
+    {Online Course Managment System}
+    {\textsc{Computer Laboratory}, Prof. Arnab Bhattacharya}
+    {}
+    {%
+        \begin{itemize}[leftmargin=\bulletspace{}]
+            \item Implemented online portal for course management system where different access where provided to student and teachers.
+            \item Developed various sections such as announcements regarding course, section to upload course material.
+            \item Student can upload their solutions to assignment using this online portal, statistics were generated on the basis of performance.
+        \end{itemize}
+    }
+
+\cproject
+    {May 2013 - Jul 2013 }
+    {Hockey de Air game}
+    {\textsc{Robotics Club}, Summer Project}
+    {}
+    {%
+        \begin{itemize}[leftmargin=\bulletspace{}]
+            \item Selected by DORA and awarded funding for future work.
+            \item Built motion controlled robots capable of playing game like air hockey using Image Processing.
+        \end{itemize}
+    }
+
+%----------------------------------------------------------------------------------------
+%   Technical Skills
+%----------------------------------------------------------------------------------------
+\section{Technical Skills}
+    {
+        \begin{table}[ht]
+        \begin{tabular}{l l}
+        \small Programming Languages & \small C, C++, Python\\
+        \small Tools & \small Android Studio, Latex, Git, Octave, Weka\\
+        \small Platforms & \small Windows, Linux, Android
+        \end{tabular}
+        \end{table}
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%   RELEVANT COURSES
+%----------------------------------------------------------------------------------------
+\section{Courses}
+    {
+        \begin{table}[ht]
+        \begin{tabular}{c c c c}
+        \small
+                Machine Learning & \small Data Mining & \small Operating Systems & \small Compilers\\ 
+                \small Principles of Programming Languages &\small Computer Organization &\small Game Theory &\small Introduction to Logic\\ 
+                \small Data Structures \& Algorithms &\small Database Systems &\small Networks &\small Probabilty \& Statistics\\
+        \end{tabular}
+        \end{table}
+    }
+
+
+
+
+%----------------------------------------------------------------------------------------
+%   EXTRA-CURRICULAR ACTIVITIES
+%----------------------------------------------------------------------------------------
+
+\section{Extra-Curricular Activities}
+ \begin{itemize}[leftmargin=\bulletspace{}]
+        \item \textbf{Polaroid (Techfest IITB)}: Represented IITK; Used Path Planning Algorithms \& Image Processing to fabricate robots 
+        \item \textbf{IARC (Techkriti IITK)}: Represented IITK; Implemented PID algorithms for robot navigation using Infrared Sensors
+        \item \textbf{Takneek}: \textbf{Rank 1}, Wild Soccer; \textbf{Rank 2}, Line Following Robotics Event (Intra-College)
+        \item Won Science Quiz organized by University Department of Chemical Technology on National Science Day. 
+         \end{itemize}
+
+
+\end{document}
